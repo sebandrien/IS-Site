@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="icon" href="/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            color: #333;
+        }
+
+        .left-align {
+            text-align: left;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        header {
+            background-color: white;
+            padding: 10px;
+            text-align: left;   
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        header img {
+            max-width: 500px;
+            margin-right: 20px;
+        }
+
+        h1 {
+            color: black;
+            margin-left: 515px;
+        }
+
+        p {
+            text-align: center;
+            color: black;
+        }
+
+        strong {
+            color: black;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .status {
+            padding: 5px;
+            text-align: left;
+            margin: 5px 0;
+            color: black;
+            font-size: 15px;
+            font-family: 'Lucida Console', monospace;
+            background-color: #f2f2f2;
+        }
+
+        .status-container {
+            display: inline-block;
+            margin-left: 10px;  
+        }   
+
+        form {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #b6b6b6;
+            color: black;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            size: 5px;
+        }
+
+        hr {
+            margin-top: 30px;
+            border: 1px solid #ddd;
+        }
+
+        table {
+            border-collapse: collapse;
+            background-color: white;
+            width: 50%;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid black;
+            color: rgb(0, 0, 0);
+        }
+
+        th {
+            background-color: darkgray;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="/landing">
+            <img src="/logo.PNG" alt="Illustrious Steel Logo">
+        </a>
+    </header>
+
+    <h1>Admin Dashboard</h1>
+    <hr>
+ 
+    <p>
+        You are connected to Illustrious Steel's admin-database as an <strong>admin-level</strong> user.<br>
+    </p>
+
+    <h4>SV1-Status: <span class="status-container"><p class="status update" th:text="${databaseStatus}"></p></span></h4>
+
+    <h4>SV2-Status: <span class="status-container"><p class="status update" th:text="${databaseName}"></p></span></h4>
+
+    <h4>AWS-Status: <span class="status-container"><p class="status update" th:text="${databaseName}"></p></span></h4>
+
+    <h4>AWS-Name: <span class="status-container"><p class="status update" th:text="${databaseName}"></p></span></h4>
+    
+    <div id="currentDateTime"></div>
+
+    <hr>
+
+    <script>
+
+        function updateDateTime() {
+            var dateTimeElement = document.getElementById("currentDateTime");
+            var now = new Date();
+
+            var options = {
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false 
+            };
+
+            var dateTimeString = now.toLocaleString('en-US', options);
+            dateTimeElement.innerText = dateTimeString;
+        }
+
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+    </script>.
+
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="icon" href="/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Home</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            color: #333;
+        }
+
+        .left-align {
+            text-align: left;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        header {
+            background-color: white;
+            padding: 10px;
+            text-align: left;   
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        header img {
+            max-width: 500px;
+            margin-right: 20px;
+        }
+
+        h1 {
+            color: black;
+            margin-left: 515px;
+        }
+
+        p {
+            text-align: center;
+            color: black;
+        }
+
+        strong {
+            color: black;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .status {
+            padding: 5px;
+            text-align: left;
+            margin: 5px 0;
+            color: black;
+            font-size: 15px;
+            font-family: 'Lucida Console', monospace;
+            background-color: #f2f2f2;
+        }
+
+        .status-container {
+            display: inline-block;
+            margin-left: 10px;  
+        }   
+
+        .update {
+            background-color: #f2f2f2;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .custom-button {
+            display: inline-block;
+            padding: 10px 20px; 
+            margin-right: 10px;
+            font-size: 14px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: #000000;
+            transition: background-color 0.3s ease;
+            outline: black;
+            border: 2px solid #000000;
+        }
+
+        .custom-button:hover {
+            background-color: #838383;
+        }
+
+        hr {
+            margin-top: 30px;
+            border: 1px solid #ddd;
+        }
+
+        table {
+            border-collapse: collapse;
+            background-color: white;
+            width: 50%;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid black;
+            color: rgb(0, 0, 0);
+        }
+
+        th {
+            background-color: darkgray;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="/landing">
+            <img src="/logo.PNG" alt="Illustrious Steel Logo">
+        </a>
+    </header>
+
+    <h1>Client-Dashboard</h1>
+    <hr>
+ 
+    <p>
+        You are connected to Illustrious Steel's client-database as a <strong>client-level</strong> user.<br>
+        Please select a database, then click "view table" to see its contents.<br>
+        Execution results will appear on this page.
+    </p>
+
+    <div id="resultContainer"></div>
+
+    <div th:if="${queryResult}">
+        <table>
+            <tr>
+                <th th:each="header : ${queryResult[0].keySet()}" th:text="${header}"></th>
+            </tr>
+            
+            <tr th:each="row : ${queryResult}">
+                <td th:each="entry : ${row.values()}" th:text="${entry}"></td>
+            </tr>
+        </table>
+    </div>
+
+    <h4>DB-Connection Status:<span class="status-container"><p class="status update" th:text="${databaseStatus}"></p></span></h4>
+
+    <h4>DB-name:<span class="status-container"><p class="status update" th:text="${databaseName}"></p></span></h4>
+            
+    <h4>Table-name:<span class="status-container"><p class="status update" th:text="steel_inventory"></p></span></h4>
+    <form action="/clientHome/viewSteel" method="post" class="left-align">
+        <button class="custom-button" button onclick="addText()">View Table</button>
+        <button class="custom-button" button type="button" onclick="clearContent()">Clear Results</button>
+    </form>
+
+    <h4>Table-name:<span class="status-container"><p class="status update" th:text="rail_inventory"></p></span></h4>
+    <form action="/clientHome/viewRail" method="post" class="left-align">
+        <button class="custom-button" button onclick="addText()">View Table</button>
+        <button class="custom-button" button type="button" onclick="clearContent()">Clear Results</button>
+    </form>
+
+    <p>
+        <a href="/landing">Click here to return home.</a>
+    </p>
+
+    <hr>
+
+    <script>
+        function addText() {
+            var resultContainer = document.getElementById('resultContainer');
+            var successText = document.createElement('p');
+            successText.textContent = 'Query successful!';
+            resultContainer.appendChild(successText);
+        }
+    
+        function clearContent() {
+            var table = document.querySelector('table');
+            if (table) {
+                table.innerHTML = '';
+            }
+
+            var resultContainer = document.getElementById('resultContainer');
+            resultContainer.innerHTML = '';
+        }
+    </script>
+
+    <div th:if="${error}" style="color: red;">
+        <p th:text="${error}"></p>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="icon" href="/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Section</title>
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        #faq-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #333;
+            max-width: 80%;
+            padding: 20px;
+            z-index: 2;
+        }
+
+        p {
+            text-align: left;
+            color: black;
+            padding: 20px;
+        }
+
+        #particles-js {
+            background-color: #f2f2f2;
+        }
+
+        #faq-container p {
+            color: #333; 
+            text-align: left; 
+            text-indent: 1.5em; 
+            margin-bottom: 1.5em; 
+        }
+    </style>
+</head>
+<body>
+
+    <div id="faq-container">
+
+        <h2>FAQ</h2>
+
+        <h3>1. Who are we?</h3>
+        <p>Illustrious Steel is a steel refinement company dedicated to delivering cutting-edge steel manufacturing solutions to our diverse international partners worldwide. Our commitment to quality and innovation sets us apart, ensuring the highest standards in every aspect of our operations.</p>
+
+        <h3>2. How does this site work?</h3>
+        <p>As a valued client-user, you gain access to our maintained database of current steel & rail inventory. By clicking on the button provided on the landing page, you'll be directed to a page where you can view our steel and rail inventories. Explore our inventory with ease and streamline your interactions with Illustrious Steel.</p>
+
+        <h3>3. What powers this site?</h3>
+        <p>This site is powered by a dynamic blend of technologies. On the frontend, we leverage HTML, CSS, and Javascript to craft a seamless and engaging user experience. Behind the scenes, Java serves as the robust backbone, ensuring the functionality and responsiveness of our platform. Additionally, MySQL plays a crucial role as the database management system, efficiently handling and organizing the wealth of information that fuels our operations, with MySQL Workbench being used as a database management tool.</p>
+
+        <p>
+            <a href="/landing">Click here to return home.</a>
+        </p>
+    </div>
+
+    <div id="particles-js"></div>
+
+    <script src="/particles.js"></script>
+    <script src="/app.js"></script>
+</body>
+</html>

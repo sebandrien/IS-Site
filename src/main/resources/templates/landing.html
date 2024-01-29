@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="icon" href="/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Illustrious Steel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: white;
+            text-align: center;
+            padding: 0.15em;
+        }
+
+        header img {
+            max-width: 500px;
+        }
+
+        .status {
+            padding: 10px;
+            text-align: left;
+            margin: 5px 0;
+            color: steelblue;
+            font-size: 10px;
+            font-family: 'Lucida Console', monospace;
+        }
+
+        main {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        #login-box {
+            background-color: #fff;
+            padding: 20px;
+            width: 800px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            height: 300px;
+        }
+
+        #login-box label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        #login-box input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        #login-box button {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        hr {
+            margin-top: 300px;
+            margin-bottom: 20px;
+        }
+
+        #contact-info {
+            text-align: center;
+            padding: 20px;
+            color: black;
+        }
+
+        .custom-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: #000000;
+            transition: background-color 0.3s ease;
+            outline: black;
+            border: 2px solid #000000;
+        }
+
+        .custom-button:hover {
+            background-color: #838383;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="/landing">
+        <img src="logo.PNG" alt="Illustrious Steel Logo">
+    </a>
+</header>
+
+<main>
+    <div>
+        <h1>Welcome to the Illustrious Steel Client Portal</h1>
+        <p>
+            At Illustrious Steel, we, along with our esteemed global partners, are committed to achieving excellence in the steel industry. With a dedication to innovation, quality, and customer satisfaction, we aspire to become industry leaders in steelmaking and related services. Our journey is marked by a relentless pursuit of excellence, sustainable practices, and a global perspective that shapes our identity as a leading player in the steel sector. Join us on this remarkable journey as we forge a future of strength, durability, and unparalleled service in the world of steel.
+        </p>
+        <p>
+            You are connected as a <strong>client-level</strong> user.
+        </p>
+
+        <div>
+            <button class="custom-button" onclick="window.location.href='/clientHome'">Access the Database</button>
+        </div>
+
+        <br>
+
+        <div>
+            <button class="custom-button" onclick="window.location.href='/faq'">Access the FAQ</button>
+        </div>
+
+        <p style="font-family: 'system-ui', sans-serif;">
+            If you require assistance, please contact support at +1 (516)-592-8831.
+        </p>
+
+    </div>
+
+    <div id="login-box">
+        <h2>Admin Portal</h2>
+        <form method="post" action="/login">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+
+            <input type="hidden" id="formSubmitted" name="formSubmitted">
+            <p th:text="${error}" style="color: red;"></p>
+        </form>
+
+    </div>
+</main>
+
+<hr>
+<div id="contact-info">
+    <p>
+        Illustrious Steel<br>
+        200 E. Millennium Street<br>
+        Manhattan, NY 10002-0256<br>
+        Email: sebandrien@gmail.com
+    </p>
+</div>
+</body>
+</html>
