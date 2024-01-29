@@ -1,5 +1,8 @@
 package com.example.is_site;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Column;
 
 @Entity
 public class SiteEntity {
