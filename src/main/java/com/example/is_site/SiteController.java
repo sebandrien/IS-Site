@@ -22,6 +22,11 @@ public class SiteController {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    @GetMapping("/")
+    public String redirectToLanding() {
+        return "redirect:/landing";
+    }
+
     @GetMapping("/clientHome")
     public String executeQuery(Model model) {
         List<SiteEntity> entries = service.getAllEntries();
