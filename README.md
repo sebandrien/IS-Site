@@ -1,4 +1,4 @@
-# IS-SITE README
+# IS-Site README
 
 ## Project Overview
 
