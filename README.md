@@ -55,6 +55,9 @@ To use the application, follow these steps:
 - **`/adminHome`**: Admin home page.
 - **`/login`**: Admin login page.
 
+## Error Handling
+Error handling is implemented in the application to handle potential exceptions gracefully. If there are issues with database connectivity or query execution, appropriate error messages are displayed to the user.
+
 ## Database Configuration
 
 The application uses MySQL as the database. Configure the database connection in the `application.properties` file:
@@ -62,7 +65,4 @@ The application uses MySQL as the database. Configure the database connection in
 ```properties
 spring.datasource.url=jdbc:mysql://<database-host>:<port>/<database-name>
 spring.datasource.username=<database-username>
-spring.datasource.password=<database-password>
-
-## Error Handling
-Error handling is implemented in the application to handle potential exceptions gracefully. If there are issues with database connectivity or query execution, appropriate error messages are displayed to the user.
+spring.datasource.password=<database-password> 
