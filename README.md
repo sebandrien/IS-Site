@@ -1,3 +1,60 @@
+Project Overview
+This project is a Spring Boot application designed to manage and display information about different inventory types. It provides a web interface for clients and administrators to interact with the system. The application uses Spring MVC for handling web requests, Thymeleaf for server-side templating, and a MySQL database for data storage.
 
-The site is cloud hosted and can be acessed here: https://is-site-6d7e0f0c358a.herokuapp.com/landing
-Deployed on Heroku.
+Table of Contents
+Project Structure
+Dependencies
+Usage
+Endpoints
+Database Configuration
+Error Handling
+Contributing
+License
+Project Structure
+The project structure follows standard Spring Boot conventions. The main components are:
+
+com.example.is_site.SiteController: Controller class handling web requests.
+com.example.is_site.SiteEntity: Entity class representing data structure.
+com.example.is_site.SiteEntityService: Service class for managing entities.
+resources/templates: Thymeleaf templates for rendering HTML views.
+Dependencies
+The application has the following dependencies:
+
+Spring Boot
+Thymeleaf
+MySQL Connector
+Spring JDBC
+These dependencies are managed using Maven. Make sure to have Maven installed before building and running the project.
+
+Usage
+To use the application, follow these steps:
+
+Clone the repository: git clone <repository-url>
+Configure the database (see Database Configuration).
+Build the project: mvn clean install
+Run the application: mvn spring-boot:run
+Access the application in a web browser: http://localhost:8080
+Endpoints
+/clientHome: Display information for clients.
+/clientHome/viewSteel: View steel inventory.
+/clientHome/viewRail: View rail inventory.
+/landing: Landing page.
+/faq: Frequently Asked Questions page.
+/adminHome: Admin home page.
+/login: Admin login page.
+Database Configuration
+The application uses MySQL as the database. Configure the database connection in the application.properties file:
+
+properties
+Copy code
+spring.datasource.url=jdbc:mysql://<database-host>:<port>/<database-name>
+spring.datasource.username=<database-username>
+spring.datasource.password=<database-password>
+Error Handling
+Error handling is implemented in the application to handle potential exceptions gracefully. If there are issues with database connectivity or query execution, appropriate error messages are displayed to the user.
+
+Contributing
+Feel free to contribute to the project by opening issues or submitting pull requests. Follow the Contributing Guidelines for more details.
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
