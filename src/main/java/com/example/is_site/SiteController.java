@@ -107,7 +107,7 @@ public class SiteController {
 
     private void executeQueryPost(String tableName, Model model) {
         try {
-            String sqlQuery = "SELECT * FROM " + tableName;
+            String sqlQuery = "SELECT * FROM + tableName;
             List<Map<String, Object>> result = jdbcTemplate.queryForList(sqlQuery);
             model.addAttribute("queryResult", result);
 
